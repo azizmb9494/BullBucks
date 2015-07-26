@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--BullBuck$-->
+        <!--Bull Buck$-->
         <scene sceneID="vXW-2g-dO2">
             <objects>
                 <viewController id="BaQ-iq-7U7" customClass="BalViewCtrl" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="BullBuck$" id="soD-rU-nOK">
+                    <navigationItem key="navigationItem" title="Bull Buck$" id="soD-rU-nOK">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="Yfu-6I-u7j"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Nq0-Mc-f6a"/>
                     </navigationItem>

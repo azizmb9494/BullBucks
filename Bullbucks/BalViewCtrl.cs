@@ -76,6 +76,7 @@ namespace Bullbucks
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
+			this.UpdateData ();
 		}
 	}
 }

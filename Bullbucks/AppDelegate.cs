@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using System;
 
 namespace Bullbucks
 {
@@ -9,6 +10,7 @@ namespace Bullbucks
 	public class AppDelegate : UIApplicationDelegate
 	{
 		// class-level declarations
+		private static BalViewCtrl BalanceViewController;
 
 		public override UIWindow Window {
 			get;
@@ -19,8 +21,22 @@ namespace Bullbucks
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-
+			if (UIDevice.CurrentDevice.CheckSystemVersion (7, 0)) {
+				UIApplication.SharedApplication.SetMinimumBackgroundFetchInterval (UIApplication.BackgroundFetchIntervalMinimum);
+			}
 			return true;
+		}
+
+		async public override void PerformFetch (UIApplication application, Action<UIBackgroundFetchResult> completionHandler)
+		{
+			var resp = UIBackgroundFetchResult.NoData;
+			try {
+				BalanceViewController.UpdateData();
+				resp = UIBackgroundFetchResult.NewData;
+			} catch {
+				resp = UIBackgroundFetchResult.Failed;
+			}
+			completionHandler (resp);
 		}
 
 		public override void OnResignActivation (UIApplication application)

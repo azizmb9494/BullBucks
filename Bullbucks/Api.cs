@@ -21,7 +21,7 @@ namespace Bullbucks
 		/// <returns>Balance.</returns>
 		/// <param name="card">Card Number.</param>
 		/// <param name="uid">U Number.</param>
-		async public static Task<decimal> GetBalance(string card, string uid) {
+		async public static Task<double> GetBalance(string card, string uid) {
 			FormUrlEncodedContent form = new FormUrlEncodedContent (new[] {
 				new KeyValuePair<string, string> ("CardNumber", card),
 				new KeyValuePair<string, string> ("UID", uid),
@@ -36,9 +36,9 @@ namespace Bullbucks
 				string html = await resp.Content.ReadAsStringAsync ();
 				html = html.Between("<p align=\"center\"><font size=\"5\" color=\"#00573C\"><b>The current balance on your Bull Buck$ Account is", "</b></font></p>").Trim().Remove(0, 1);
 
-				decimal balance = 0;
+				double balance = 0;
 				if (!String.IsNullOrEmpty(html)) {
-					if (decimal.TryParse(html, out balance)) {
+					if (double.TryParse(html, out balance)) {
 						return balance;
 					} else {
 						return -100;
@@ -59,7 +59,7 @@ namespace Bullbucks
 		/// <param name="card">Card Number.</param>
 		/// <param name="first">First Name.</param>
 		/// <param name="last">Last Name.</param>
-		async public static Task<decimal> GetBalance(string card, string first, string last) {
+		async public static Task<double> GetBalance(string card, string first, string last) {
 			FormUrlEncodedContent form = new FormUrlEncodedContent (new[] {
 				new KeyValuePair<string, string> ("CardNumber", card),
 				new KeyValuePair<string, string> ("CardFirstName", first.ToUpper()),
@@ -73,9 +73,9 @@ namespace Bullbucks
 				resp = await _Client.PostAsync ("BBAgree.asp", form);
 				string html = await resp.Content.ReadAsStringAsync ();
 				html = html.Between("<p align=\"center\"><font size=\"5\" color=\"#00573C\"><b>The current balance on your Bull Buck$ Account is", "</b></font></p>").Trim().Remove(0, 1);
-				decimal balance = 0;
+				double balance = 0;
 				if (!String.IsNullOrEmpty(html)) {
-					if (decimal.TryParse(html, out balance)) {
+					if (double.TryParse(html, out balance)) {
 						return balance;
 					} else {
 						return -100;

@@ -12,9 +12,23 @@ namespace Bullbucks
 	[Register ("BalViewCtrl")]
 	partial class BalViewCtrl
 	{
+		[Outlet]
+		UIKit.UILabel balLbl { get; set; }
+
+		[Outlet]
+		UIKit.UILabel timeLbl { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (balLbl != null) {
+				balLbl.Dispose ();
+				balLbl = null;
+			}
+
+			if (timeLbl != null) {
+				timeLbl.Dispose ();
+				timeLbl = null;
+			}
 		}
 	}
 }

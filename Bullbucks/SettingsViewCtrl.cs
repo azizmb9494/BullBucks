@@ -58,7 +58,7 @@ namespace Bullbucks
 		void Save_Tapped ()
 		{
 			ulong cNumber = 0; 
-			if (this.CardNumber.Value.Length != 13 || !ulong.TryParse (this.CardNumber.Value, out cNumber)) {
+			if (this.CardNumber.Value.Length != 16 || !ulong.TryParse (this.CardNumber.Value, out cNumber)) {
 				BTProgressHUD.ShowErrorWithStatus ("Card #");
 			} else if (this.UID.Value.Length != 9) {
 				BTProgressHUD.ShowErrorWithStatus ("U Number");

@@ -28,7 +28,11 @@ namespace Bullbucks
 						var bal = await Api.GetBalance(KeyStore.CardNumber, KeyStore.UID);
 						InvokeOnMainThread(delegate {
 							if (bal >= 0) {
+								KeyStore.Updated = DateTime.UtcNow;
+								KeyStore.Balance = bal;
 
+								this.balLbl.Text = KeyStore.Balance.ToString("C");
+								this.timeLbl.Text =  KeyStore.Updated.ToString("G");
 							} else {
 								BTProgressHUD.ShowErrorWithStatus("Error");
 							}
@@ -43,7 +47,11 @@ namespace Bullbucks
 						var bal = await Api.GetBalance(KeyStore.CardNumber, KeyStore.FirstName, KeyStore.LastName);
 						InvokeOnMainThread(delegate {
 							if (bal >= 0) {
+								KeyStore.Updated = DateTime.UtcNow;
+								KeyStore.Balance = bal;
 
+								this.balLbl.Text = KeyStore.Balance.ToString("C");
+								this.timeLbl.Text =  KeyStore.Updated.ToString("G");
 							} else {
 								BTProgressHUD.ShowErrorWithStatus("Error");
 							}
@@ -76,6 +84,13 @@ namespace Bullbucks
 		public override void ViewDidAppear (bool animated)
 		{
 			base.ViewDidAppear (animated);
+			this.balLbl.Text = KeyStore.Balance.ToString("C");
+			if (KeyStore.Updated == new DateTime (1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)) {
+				this.timeLbl.Text = "Never Updated";
+			} else {
+				this.timeLbl.Text = KeyStore.Updated.ToString ("G");
+			}
+
 			this.UpdateData ();
 		}
 	}

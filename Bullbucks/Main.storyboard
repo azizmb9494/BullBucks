@@ -16,12 +16,30 @@
                     <view key="view" contentMode="scaleToFill" id="ygV-P5-vHg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyL-91-AE6">
+                                <rect key="frame" x="183" y="289" width="235" height="55"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <color key="textColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Never Updated" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI2-Db-5yt">
+                                <rect key="frame" x="183" y="352" width="235" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bull Buck$" id="soD-rU-nOK">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="Yfu-6I-u7j"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Nq0-Mc-f6a"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="balLbl" destination="gyL-91-AE6" id="qwp-jM-UHX"/>
+                        <outlet property="timeLbl" destination="tI2-Db-5yt" id="Ntr-7s-ze3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JnR-t5-moa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

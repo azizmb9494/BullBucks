@@ -7,6 +7,17 @@ namespace Bullbucks
 	{
 		private static NSUserDefaults _Defaults = new NSUserDefaults("group.com.azizmb.bullbucks", NSUserDefaultsType.SuiteName);
 
+		public static double Balance
+		{
+			get {
+				return _Defaults.DoubleForKey ("Balance");
+			}
+
+			set {
+				_Defaults.SetDouble (value, "Balance");
+			}
+		}
+
 		public static string FirstName
 		{
 			get {

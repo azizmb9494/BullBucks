@@ -10,7 +10,7 @@ namespace Bullbucks
 		public static string FirstName
 		{
 			get {
-				_Defaults.StringForKey ("FirstName");
+				return _Defaults.StringForKey ("FirstName");
 			}
 
 			set {
@@ -21,7 +21,7 @@ namespace Bullbucks
 		public static string LastName
 		{
 			get {
-				_Defaults.StringForKey ("LastName");
+				return _Defaults.StringForKey ("LastName");
 			}
 
 			set {
@@ -32,7 +32,7 @@ namespace Bullbucks
 		public static string UID
 		{
 			get {
-				_Defaults.StringForKey ("UID");
+				return _Defaults.StringForKey ("UID");
 			}
 
 			set {
@@ -43,11 +43,23 @@ namespace Bullbucks
 		public static string CardNumber
 		{
 			get {
-				_Defaults.StringForKey ("CardNumber");
+				return _Defaults.StringForKey ("CardNumber");
 			}
 
 			set {
 				_Defaults.SetString (value, "CardNumber");
+			}
+		}
+
+		public static DateTime Updated
+		{
+			get {
+				return new DateTime (1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc).AddTicks ((int)_Defaults.IntForKey ("Updated"));
+			}
+
+			set {
+				var delta = value - new DateTime (1999, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+				_Defaults.SetInt ((int)delta.Ticks, "Updated");
 			}
 		}
 	}

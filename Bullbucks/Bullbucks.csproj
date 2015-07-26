@@ -87,6 +87,7 @@
       <DependentUpon>BalViewCtrl.cs</DependentUpon>
     </Compile>
     <Compile Include="KeyStore.cs" />
+    <Compile Include="SettingsViewCtrl.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

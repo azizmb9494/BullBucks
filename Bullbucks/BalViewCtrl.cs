@@ -17,7 +17,7 @@ namespace Bullbucks
 		/// <summary>
 		/// Updates Balance.
 		/// </summary>
-		private void UpdateData()
+		public void UpdateData()
 		{
 			/// Check if Card Number saved.
 			if (!String.IsNullOrEmpty (KeyStore.CardNumber)) {

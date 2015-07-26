@@ -2,6 +2,7 @@
 using MonoTouch.Dialog;
 using Foundation;
 using UIKit;
+using BigTed;
 
 namespace Bullbucks
 {
@@ -34,7 +35,7 @@ namespace Bullbucks
 
 			Section Numbers = new Section () { this.CardNumber, this.UID };
 			Section Name = new Section () { this.FirstName, this.LastName };
-			Name.Footer = "Please enter either your U Number OR First AND Last Name.";
+			Name.Footer = "Only your U Number OR First AND Last Name are required.";
 
 
 			this.Root = new RootElement ("Account") {
@@ -44,11 +45,32 @@ namespace Bullbucks
 					this.Save
 				}
 			};
+
+			this.NavigationItem.RightBarButtonItem = new UIBarButtonItem (UIBarButtonSystemItem.Save, delegate {
+				this.Save_Tapped();	
+			});
+
+			this.NavigationItem.LeftBarButtonItem = new UIBarButtonItem (UIBarButtonSystemItem.Cancel, delegate {
+				this.NavigationController.PopViewController(true);	
+			});
 		}
 
 		void Save_Tapped ()
 		{
-			
+			ulong cNumber = 0; 
+			if (this.CardNumber.Value.Length != 13 || !ulong.TryParse (this.CardNumber.Value, out cNumber)) {
+				BTProgressHUD.ShowErrorWithStatus ("Card #");
+			} else if (this.UID.Value.Length != 9) {
+				BTProgressHUD.ShowErrorWithStatus ("U Number");
+			} else {
+				KeyStore.CardNumber = this.CardNumber.Value;
+				KeyStore.UID = this.UID.Value;
+				KeyStore.FirstName = this.FirstName.Value;
+				KeyStore.LastName = this.LastName.Value;
+
+				BTProgressHUD.ShowSuccessWithStatus ("Saved!");
+				this.NavigationController.PopViewController (true);
+			}
 		}
 	}
 }

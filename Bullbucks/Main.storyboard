@@ -17,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyL-91-AE6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyL-91-AE6">
                                 <rect key="frame" x="183" y="289" width="235" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="64"/>
                                 <color key="textColor" red="0.18039215689999999" green="0.80000000000000004" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Never Updated" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI2-Db-5yt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Never Updated" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI2-Db-5yt">
                                 <rect key="frame" x="183" y="352" width="235" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -31,6 +31,13 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="gyL-91-AE6" secondAttribute="centerX" constant="-0.5" id="I8l-YN-YPg"/>
+                            <constraint firstItem="gyL-91-AE6" firstAttribute="centerX" secondItem="tI2-Db-5yt" secondAttribute="centerX" id="STo-bl-SRu"/>
+                            <constraint firstAttribute="centerX" secondItem="tI2-Db-5yt" secondAttribute="centerX" constant="-0.5" id="rzf-JN-E8C"/>
+                            <constraint firstAttribute="centerY" secondItem="gyL-91-AE6" secondAttribute="centerY" constant="-16.5" id="teE-xQ-hx3"/>
+                            <constraint firstItem="tI2-Db-5yt" firstAttribute="bottom" secondItem="gyL-91-AE6" secondAttribute="bottom" constant="29" id="up6-9H-h8Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Bull Buck$" id="soD-rU-nOK">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="Yfu-6I-u7j"/>
@@ -51,7 +58,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Seh-ra-wSJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axl-v5-wJu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
